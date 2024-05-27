@@ -15,15 +15,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+#define _CRT_DECLARE_NONSTDC_NAMES  1
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 // Use POSIX I/O for compatibility with Linux/MacOS/Windows
+#ifndef _WIN32
 #include <unistd.h>
+#else
+#include <Windows.h>
+#include <io.h>
+#endif
 #include <stdarg.h>
 
+#ifndef _WIN32
 #include <sys/fcntl.h>
+#else
+#include <fcntl.h>
+#endif
 #include <sys/stat.h>
 
 #include "gif_lib.h"
